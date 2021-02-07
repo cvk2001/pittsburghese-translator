@@ -1,0 +1,13 @@
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\bin\Debug\netcoreapp3.1\PittsburgheseTranslator.exe
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\bin\Debug\netcoreapp3.1\PittsburgheseTranslator.deps.json
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\bin\Debug\netcoreapp3.1\PittsburgheseTranslator.runtimeconfig.json
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\bin\Debug\netcoreapp3.1\PittsburgheseTranslator.runtimeconfig.dev.json
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\bin\Debug\netcoreapp3.1\PittsburgheseTranslator.dll
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\bin\Debug\netcoreapp3.1\PittsburgheseTranslator.pdb
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.csprojAssemblyReference.cache
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.AssemblyInfoInputs.cache
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.AssemblyInfo.cs
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.csproj.CoreCompileInputs.cache
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.dll
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.pdb
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.genruntimeconfig.cache
