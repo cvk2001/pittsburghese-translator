@@ -62,7 +62,7 @@ namespace PittsburgheseTranslator
         public string WordToSearch()
         {
             Console.WriteLine("Please enter the Pittsburghese word you would like to look up: ");
-            string input = Console.ReadLine();
+            string inputWord = Console.ReadLine();
             return "";
         }
         public bool WordList()
