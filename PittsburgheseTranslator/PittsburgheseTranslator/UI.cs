@@ -47,7 +47,7 @@ namespace PittsburgheseTranslator
                     WordToSearch();
                     break;
                 case "2":
-                    functions.WordList();
+                    WordList();
                     break;
                 case "3":
                     searchAgain = false;
@@ -61,7 +61,13 @@ namespace PittsburgheseTranslator
         }
         public string WordToSearch()
         {
+            Console.WriteLine("Please enter the Pittsburghese word you would like to look up: ");
+            string input = Console.ReadLine();
             return "";
+        }
+        public bool WordList()
+        {
+            return true;
         }
     }
 }
