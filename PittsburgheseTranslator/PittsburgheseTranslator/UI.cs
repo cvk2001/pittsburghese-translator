@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
- 
+
 namespace PittsburgheseTranslator
 {
     public class UI
@@ -9,7 +9,7 @@ namespace PittsburgheseTranslator
         private DictionaryFunctions Dictionary { get; set; } = new DictionaryFunctions();
         public UI()
         {
-            
+
         }
         public void Start()
         {
@@ -32,29 +32,37 @@ namespace PittsburgheseTranslator
         public string MainMenu()
         {
             string choice = "";
+
+
+            Console.WriteLine("Please select from the following options:\n" +
+                "(If you are not sure of the word or spelling, take a look at the list first)\n" +
+                "1)Define a word\n" +
+                "2)See a List of Pittsburghese words\n" +
+                "3)Exit\n");
+            choice = Console.ReadLine();
+            Console.WriteLine();
             
-            
-                Console.WriteLine("Please select from the following options:\n" +
-                    "1)Define a word\n" +
-                    "2)See a List of Pittsburghese words\n" +
-                    "3)Exit\n");
-                choice = Console.ReadLine();
-             while (choice != "1" && choice != "2" && choice != "3")
+            while (choice != "1" && choice != "2" && choice != "3")
             {
                 Console.WriteLine("Sorry, please choose 1, 2, or 3");
                 choice = Console.ReadLine();
+                Console.WriteLine();
             }
             return choice;
-                      
+
         }
         public bool MainMenuOptions(string choice)
         {
+            string wordInput = "";
             bool searchAgain = true;
-            
-            switch(choice)
+
+            switch (choice)
             {
                 case "1":
-                    WordToSearch();
+                    Console.Write("Please enter the odd sounding word you would like to look up: ");
+                    wordInput = Console.ReadLine().ToLowerInvariant();
+                    Console.WriteLine();
+                    Dictionary.WordToSearch(wordInput);
                     break;
                 case "2":
                     Dictionary.WordList();
@@ -69,13 +77,8 @@ namespace PittsburgheseTranslator
             }
             return searchAgain;
         }
-        public string WordToSearch()
-        {
-            Console.WriteLine("Please enter the Pittsburghese word you would like to look up: ");
-            string inputWord = Console.ReadLine();
-            return "";
-        }
-       
-        
+
+
+
     }
 }

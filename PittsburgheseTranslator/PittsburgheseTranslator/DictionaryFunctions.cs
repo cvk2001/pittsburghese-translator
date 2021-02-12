@@ -21,7 +21,7 @@ namespace PittsburgheseTranslator
                     while (!sr.EndOfStream)
                     {
                         string[] wordLine = sr.ReadLine().Split('|');
-                        pgheseDictionary[wordLine[0]] = wordLine[1];
+                        pgheseDictionary[wordLine[0].ToLowerInvariant()] = wordLine[1];
                     }
                 }
             }
@@ -41,8 +41,38 @@ namespace PittsburgheseTranslator
             {
                 Console.WriteLine(kvp.Key);
             }
+            Console.WriteLine();
             return true;
 
+        }
+        // fix return type when I fix formatting and add a 'continue playing' feature
+        public void WordToSearch(string wordInput)
+        {
+            bool wordFound = false;
+            string definition = "";
+            foreach (KeyValuePair<string,string> kvp in pgheseDictionary)
+            {
+                if (kvp.Key == wordInput)
+                {
+                    
+                    wordFound = true;
+                    definition = kvp.Value;
+                }
+                             
+            }
+            if (wordFound == true)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"{wordInput} = {definition}");
+                Console.WriteLine();
+            
+            }else
+            {
+                Console.WriteLine("\nThe word was not found.  Maybe it has a different spelling or maybe it is not in the dictionary yet/n" +
+                    "Please try again or check the word list");
+            }
+
+            
         }
     }
     
