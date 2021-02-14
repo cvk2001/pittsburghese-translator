@@ -68,9 +68,12 @@ namespace PittsburgheseTranslator
             
             }else
             {
-                Console.WriteLine("\nThe word was not found.  Maybe it has a different spelling or maybe it is not in the dictionary yet/n" +
+                Console.WriteLine("\nThe word was not found.  Maybe it has a different spelling or maybe it is not in the dictionary yet\n" +
                     "Please try again or check the word list");
             }
+
+            UI ui = new UI();
+            ui.TryAgain("");
 
             
         }

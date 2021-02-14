@@ -77,6 +77,19 @@ namespace PittsburgheseTranslator
             }
             return searchAgain;
         }
+        public string TryAgain(string choice)
+        {
+            Console.Write("Would you like to play again?(Y/N) ");
+            string answer = Console.ReadLine().Trim().ToLower();
+            if (answer == "n")
+            {
+                choice = "3";
+                MainMenuOptions(choice);
+            }
+
+
+            return choice;
+        }
 
 
 
