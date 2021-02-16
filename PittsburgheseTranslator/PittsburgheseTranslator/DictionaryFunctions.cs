@@ -46,7 +46,7 @@ namespace PittsburgheseTranslator
 
         }
         // fix return type when I fix formatting and add a 'continue playing' feature
-        public void WordToSearch(string wordInput)
+        public SearchResult WordToSearch(string wordInput)//find word.  send result to ui.  
         {
             bool wordFound = false;
             string definition = "";
@@ -62,20 +62,22 @@ namespace PittsburgheseTranslator
             }
             if (wordFound == true)
             {
-                Console.WriteLine();
-                Console.WriteLine($"{wordInput} = {definition}");
-                Console.WriteLine();
-            
-            }else
+                SearchResult searchResult = new SearchResult();
+                searchResult.word = wordInput;
+                searchResult.definition = definition;
+                return searchResult;
+
+            }else //make a throw and custom error
             {
                 Console.WriteLine("\nThe word was not found.  Maybe it has a different spelling or maybe it is not in the dictionary yet\n" +
                     "Please try again or check the word list");
             }
+            return null;
 
-            UI ui = new UI();
-            ui.TryAgain("");
+            //UI ui = new UI();
+            //ui.TryAgain("");
 
-            
+
         }
     }
     

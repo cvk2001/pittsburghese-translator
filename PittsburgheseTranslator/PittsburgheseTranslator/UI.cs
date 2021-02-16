@@ -62,7 +62,8 @@ namespace PittsburgheseTranslator
                     Console.Write("Please enter the odd sounding word you would like to look up: ");
                     wordInput = Console.ReadLine().ToLowerInvariant();
                     Console.WriteLine();
-                    Dictionary.WordToSearch(wordInput);
+                    DisplayResults(Dictionary.WordToSearch(wordInput));
+                    searchAgain = TryAgain();
                     break;
                 case "2":
                     Dictionary.WordList();
@@ -77,21 +78,29 @@ namespace PittsburgheseTranslator
             }
             return searchAgain;
         }
-        public string TryAgain(string choice)
+        private void DisplayResults(SearchResult results)
+        {
+            Console.WriteLine();
+            Console.WriteLine($"{results.word} = {results.definition}");
+            Console.WriteLine();
+
+        }
+        public bool TryAgain()
         {
             Console.Write("Would you like to play again?(Y/N) ");
             string answer = Console.ReadLine().Trim().ToLower();
-            if (answer == "n")
+            if (answer.StartsWith("n"))
             {
-                choice = "3";
-                MainMenuOptions(choice);
+
+                return false;
+
             }
+            
 
-
-            return choice;
+            return true;
         }
 
 
 
-    }
+}
 }
