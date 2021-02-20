@@ -12,3 +12,4 @@ C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\P
 C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.pdb
 C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\obj\Debug\netcoreapp3.1\PittsburgheseTranslator.genruntimeconfig.cache
 C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\bin\Debug\netcoreapp3.1\pittsburghese.txt
+C:\Users\Student\workspace\sideprojects\pittsburghese\pittsburghese-translator\PittsburgheseTranslator\PittsburgheseTranslator\bin\Debug\netcoreapp3.1\pghtitle.txt

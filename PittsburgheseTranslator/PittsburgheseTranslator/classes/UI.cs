@@ -1,5 +1,7 @@
-﻿using System;
+﻿using PittsburgheseTranslator.Exceptions;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace PittsburgheseTranslator
@@ -15,6 +17,9 @@ namespace PittsburgheseTranslator
         {
             //DictionaryFunctions functions = new DictionaryFunctions();
             Dictionary.createDictionary();
+            Title();
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine();
             bool searchAgain = true;
             Console.WriteLine("Welcome to the Pittsburghese Translator.  " +
                 "If you are ever in Pittsburgh and hear an odd sounding, slightly slurred word, " +
@@ -55,28 +60,42 @@ namespace PittsburgheseTranslator
         {
             string wordInput = "";
             bool searchAgain = true;
-
-            switch (choice)
+            try
             {
-                case "1":
-                    Console.Write("Please enter the odd sounding word you would like to look up: ");
-                    wordInput = Console.ReadLine().ToLowerInvariant();
-                    Console.WriteLine();
-                    DisplayResults(Dictionary.WordToSearch(wordInput));
-                    searchAgain = TryAgain();
-                    break;
-                case "2":
-                    Dictionary.WordList();
-                    break;
-                case "3":
-                    searchAgain = false;
-                    break;
-                default:
-                    searchAgain = true;
-                    break;
+                
+                switch (choice)
+                {
+                    case "1":
+                        Console.Write("Please enter the odd sounding word you would like to look up: ");
+                        wordInput = Console.ReadLine().ToLowerInvariant();
+                        Console.WriteLine();
+                        DisplayResults(Dictionary.WordToSearch(wordInput));
+                        searchAgain = TryAgain();
+                        break;
+                    case "2":
+                        Console.Clear();
+                        Console.WriteLine("Here are the words currently in the dictionary");
+                        Console.WriteLine();
+                        Dictionary.WordList();
+                        break;
+                    case "3":
+                        searchAgain = false;
+                        break;
+                    default:
+                        searchAgain = true;
+                        break;
+
+                }
+                return searchAgain;
+                
 
             }
-            return searchAgain;
+            catch (WordNotFound e)
+            {
+                Console.WriteLine(e.Message);
+                MainMenuOptions("1");
+            }
+            return searchAgain=false;
         }
         private void DisplayResults(SearchResult results)
         {
@@ -95,12 +114,32 @@ namespace PittsburgheseTranslator
                 return false;
 
             }
-            
-
+            Console.Clear();
             return true;
+        }
+        private void Title()
+        {
+            try
+            {
+                string directory = Environment.CurrentDirectory;
+                string fileName = "pghtitle.txt";
+                string fullPath = Path.Combine(directory, fileName);
+                using (StreamReader sr = new StreamReader(fullPath))
+                {
+                    while(!sr.EndOfStream)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        Console.WriteLine(sr.ReadLine());
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Pittsburghese Translator");
+            }
+            Console.BackgroundColor = ConsoleColor.Gray;
         }
 
 
-
-}
+    }
 }

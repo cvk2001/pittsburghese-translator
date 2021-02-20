@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
+using PittsburgheseTranslator.Exceptions;
 
 namespace PittsburgheseTranslator
 {
@@ -37,6 +38,7 @@ namespace PittsburgheseTranslator
         }
         public bool WordList()
         {
+            
             foreach (KeyValuePair<string, string> kvp in pgheseDictionary)
             {
                 Console.WriteLine(kvp.Key);
@@ -47,35 +49,41 @@ namespace PittsburgheseTranslator
         }
         // fix return type when I fix formatting and add a 'continue playing' feature
         public SearchResult WordToSearch(string wordInput)//find word.  send result to ui.  
-        {
+        {   
+            SearchResult searchResult = new SearchResult();
             bool wordFound = false;
             string definition = "";
-            foreach (KeyValuePair<string,string> kvp in pgheseDictionary)
-            {
-                if (kvp.Key == wordInput)
+           // try
+           // {
+
+                foreach (KeyValuePair<string, string> kvp in pgheseDictionary)
+                {
+                    if (kvp.Key == wordInput)
+                    {
+
+                        wordFound = true;
+                        definition = kvp.Value;
+                    }
+
+                }
+                if (wordFound == true)
                 {
                     
-                    wordFound = true;
-                    definition = kvp.Value;
+                    searchResult.word = wordInput;
+                    searchResult.definition = definition;
+                    return searchResult;
+
                 }
-                             
-            }
-            if (wordFound == true)
-            {
-                SearchResult searchResult = new SearchResult();
-                searchResult.word = wordInput;
-                searchResult.definition = definition;
-                return searchResult;
-
-            }else //make a throw and custom error
-            {
-                Console.WriteLine("\nThe word was not found.  Maybe it has a different spelling or maybe it is not in the dictionary yet\n" +
-                    "Please try again or check the word list");
-            }
-            return null;
-
-            //UI ui = new UI();
-            //ui.TryAgain("");
+                else //make a throw and custom error
+                {
+                    throw new WordNotFound();
+                }
+                
+            //}catch (PgheseExceptions e)
+            //{
+            //    Console.WriteLine(e.Message);
+            //}
+            //return searchResult;
 
 
         }
