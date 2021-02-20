@@ -137,7 +137,7 @@ namespace PittsburgheseTranslator
             {
                 Console.WriteLine("Pittsburghese Translator");
             }
-            Console.BackgroundColor = ConsoleColor.Gray;
+            
         }
 
 
