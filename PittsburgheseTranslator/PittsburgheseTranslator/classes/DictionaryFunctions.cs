@@ -47,14 +47,12 @@ namespace PittsburgheseTranslator
             return true;
 
         }
-        // fix return type when I fix formatting and add a 'continue playing' feature
         public SearchResult WordToSearch(string wordInput)//find word.  send result to ui.  
         {   
             SearchResult searchResult = new SearchResult();
             bool wordFound = false;
             string definition = "";
-           // try
-           // {
+           
 
                 foreach (KeyValuePair<string, string> kvp in pgheseDictionary)
                 {
@@ -79,13 +77,6 @@ namespace PittsburgheseTranslator
                     throw new WordNotFound();
                 }
                 
-            //}catch (PgheseExceptions e)
-            //{
-            //    Console.WriteLine(e.Message);
-            //}
-            //return searchResult;
-
-
         }
     }
     

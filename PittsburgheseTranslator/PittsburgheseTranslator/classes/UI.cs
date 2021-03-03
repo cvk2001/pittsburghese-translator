@@ -1,4 +1,5 @@
-﻿using PittsburgheseTranslator.Exceptions;
+﻿using PittsburgheseTranslator.classes;
+using PittsburgheseTranslator.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,6 +10,7 @@ namespace PittsburgheseTranslator
     public class UI
     {
         private DictionaryFunctions Dictionary { get; set; } = new DictionaryFunctions();
+        private QuizFunctions Functions { get; set; } = new QuizFunctions();
         public UI()
         {
 
@@ -43,13 +45,14 @@ namespace PittsburgheseTranslator
                 "(If you are not sure of the word or spelling, take a look at the list first)\n" +
                 "1)Define a word\n" +
                 "2)See a List of Pittsburghese words\n" +
-                "3)Exit\n");
+                "3)Take a Pittsburghese Quiz\n" +
+                "4)Exit\n");
             choice = Console.ReadLine();
             Console.WriteLine();
             
-            while (choice != "1" && choice != "2" && choice != "3")
+            while (choice != "1" && choice != "2" && choice != "3" && choice != "4")
             {
-                Console.WriteLine("Sorry, please choose 1, 2, or 3");
+                Console.WriteLine("Sorry, please choose 1, 2, 3, or 4");
                 choice = Console.ReadLine();
                 Console.WriteLine();
             }
@@ -79,6 +82,13 @@ namespace PittsburgheseTranslator
                         Dictionary.WordList();
                         break;
                     case "3":
+                        Console.Clear();
+                        Title();
+                        List<Questions> quizQuestions = Functions.GetQuestions();
+                        PlayQuiz(quizQuestions);
+                        searchAgain = TryAgain();
+                        break;
+                    case "4":
                         searchAgain = false;
                         break;
                     default:
@@ -115,6 +125,7 @@ namespace PittsburgheseTranslator
 
             }
             Console.Clear();
+            Title();
             return true;
         }
         private void Title()
@@ -132,11 +143,54 @@ namespace PittsburgheseTranslator
                         Console.WriteLine(sr.ReadLine());
                     }
                 }
+                Console.ForegroundColor = ConsoleColor.Gray;
             }
             catch (Exception)
             {
                 Console.WriteLine("Pittsburghese Translator");
             }
+            
+        }
+        public void PlayQuiz(List<Questions> quizQuestions)
+        {
+            //QuizFunctions qmf = new QuizFunctions();
+            int selectedAnswer;
+            int numberCorrect = 0;
+            int totalQuestions = 0;
+            foreach (Questions question in quizQuestions)
+            {
+                Console.WriteLine(question.QuizQuestion);
+                for (int i = 0; i < question.Answers.Length; i++)
+                {
+                    Console.WriteLine($"{i + 1}) {question.Answers[i]}");
+                }
+                Console.WriteLine("\nPlease enter your answer: ");
+                selectedAnswer = int.Parse(Console.ReadLine());
+
+                try
+                {
+                    if (question.IsCorrectAnswer(selectedAnswer - 1))
+                    {
+                        Console.WriteLine("Correct");
+                        Console.WriteLine();
+                        numberCorrect++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Incorrect");
+                        Console.WriteLine();
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+                totalQuestions++;
+            }
+            Console.WriteLine();
+            Console.WriteLine($"You got {numberCorrect} right out of {totalQuestions}");
+            Console.WriteLine("\nThank you for Playing");
+            Console.WriteLine();
             
         }
 
